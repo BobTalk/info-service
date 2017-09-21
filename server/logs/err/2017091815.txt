@@ -1,0 +1,22 @@
+[2017-09-18 15:52:25.770] [ERROR] logErr - 错误信息：SyntaxError: Unexpected token u in JSON at position 0
+    at Object.parse (native)
+    at Object.getKnowledgeInfo (E:\vue\vueapp\server\service\knowledge\knowlegdeService.js:8:20)
+    at E:\vue\vueapp\server\routes\index.js:9:17
+    at Layer.handle [as handle_request] (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\layer.js:95:5)
+    at next (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\layer.js:95:5)
+    at E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\index.js:281:22
+    at Function.process_params (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\index.js:335:12)
+    at next (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\index.js:275:10)
+[2017-09-18 15:57:16.503] [ERROR] logErr - 错误信息：SyntaxError: Unexpected token u in JSON at position 0
+    at Object.parse (native)
+    at Object.getKnowledgeInfo (E:\vue\vueapp\server\service\knowledge\knowlegdeService.js:9:20)
+    at E:\vue\vueapp\server\routes\index.js:9:17
+    at Layer.handle [as handle_request] (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\layer.js:95:5)
+    at next (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\layer.js:95:5)
+    at E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\index.js:281:22
+    at Function.process_params (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\index.js:335:12)
+    at next (E:\vue\vueapp\node_modules\_express@4.15.4@express\lib\router\index.js:275:10)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var url = "{{Object_A.Name}}{{Object_A.Age}}{{Object_A.Name1}}{{Object_A.Name2}}";
+  console.log(templateMapping(url, ""));
+  function templateMapping(temp,data) {
+    if(temp){
+      var matches = temp.match(/{{[a-z_A-Z](\w+)?([\.][a-z_A-Z](\w+)?)*}}/g);
+      matches.forEach(function (match,index) {
+        temp = temp.replace(match,getMatchedData(data,match.substring(2,match.length-2)));
+      })
+    }
+    return temp;
+  }
+
+
+  function getMatchedData(data,match) {
+    var result = data;
+    var attrs =[];
+    attrs.forEach(function (obj) {
+      result = typeof result == "object"&& result.hasOwnProperty(obj)? 1:2 ;
+    });
+    result = typeof result =="undefined"?"":result;
+    return result;
+  }
+</script>
+</body>
+</html>
