@@ -86,6 +86,7 @@
 
 <style lang="scss" rel="stylesheet/scss" scoped>
   .policy {
+    float:left;
     position: relative;
     display: inline-block;
     width: calc(100% - 830px);

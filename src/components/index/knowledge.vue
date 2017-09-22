@@ -17,7 +17,6 @@
         </div>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -76,6 +75,7 @@
 
 <style lang="scss" rel="stylesheet/scss" scoped>
   .knowledge {
+    float:left;
     position: relative;
     display: inline-block;
     width: 232px;
