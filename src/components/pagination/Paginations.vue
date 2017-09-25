@@ -7,8 +7,8 @@
       <li v-show="current != 0" @click="current-- && goto(current)">
         <button>上一页</button>
       </li>
-      <li v-for="index in pages" @click="goto(index)" :key="index">
-        <button :class="{'active':current == index}">{{index}}</button>
+      <li v-for="index in pages" @click="goto(index-1)" :key="index">
+        <button :class="{'active':current == index-1}">{{index}}</button>
       </li>
       <li v-show="allpage-1 != current && allpage != 0 " @click="goto(++current)">
         <button>下一页</button>
@@ -69,7 +69,7 @@
           }
         }
         if (index == this.current) return;
-        this.current = index-1;
+        this.current = index;
         //这里可以发送ajax请求
       },
     }
