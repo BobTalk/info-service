@@ -4,7 +4,8 @@
       <div class="page fr" v-model="message">
         <button @click="upPage(0)">首页</button>
         <button @click="prePage()">上一页</button>
-        <span ref="barcon"></span>
+        <!--<button v-for="(value,key) in strC" @click="upPage(value-1)" :class="{active:nowPage == key}">{{value}}</button>-->
+        <button>{{strC}}</button>
         <button @click="upPageFoot">下一页</button>
         <button @click="upPage(Math.ceil(message.length / showNum)-1)">尾页</button>
       </div>
@@ -21,12 +22,12 @@
         /*当前页码*/
         nowPage: 0,
         /*内容显示条数*/
-        showNum: 2,
+        showNum: 3,
         /*总页数*/
         totalNum: 0,
         /*分页链接接数(5个)*/
         pageNum: 5,
-        strC: '',
+        strC: [],
       }
     },
     components: {},
@@ -49,6 +50,7 @@
       },
       /*首页/尾页*/
       upPage: function (num) {
+        this.nowPage = num;
         for (var i = 0; i < this.message.length; i++) {
           this.message[i].style.display = "none"
         }
@@ -60,26 +62,25 @@
         //分页链接变换
         var PageNum_2 = this.pageNum % 2 == 0 ? Math.ceil(this.pageNum / 2) + 1 : Math.ceil(this.pageNum / 2);
         var PageNum_3 = this.pageNum % 2 == 0 ? Math.ceil(this.pageNum / 2) : Math.ceil(this.pageNum / 2) + 1;
+        var startPage, endPage;
         if (this.pageNum >= this.totalNum) {
-          this.startPage = 0;
-          this.endPage = this.totalNum - 1;
-        } else if (num < PageNum_2) {
-          this.startPage = 0;
-          this.endPage = this.totalNum - 1 > this.PageNum ? this.PageNum : this.totalNum - 1;
+          startPage = 0;
+          endPage = this.totalNum - 1;
+        } else if (this.nowPage < PageNum_2) {
+          startPage = 0;
+          endPage = this.totalNum - 1 > this.pageNum ? this.pageNum : this.totalNum - 1;
         } else {
-          this.startPage = num + PageNum_3 >= this.totalNum ? this.totalNum - this.PageNum - 1 : num - PageNum_2 + 1;
-          var t = this.startPage + this.pageNum;
-          this.endPage = t > this.totalNum ? this.totalNum - 1 : t;
+          startPage = this.nowPage + PageNum_3 >= this.totalNum ? this.totalNum - this.pageNum - 1 : this.nowPage - PageNum_2 + 1;
+          var t = startPage + this.pageNum;
+          endPage = t > this.totalNum ? this.totalNum - 1 : t;
         }
-        for (var i = this.startPage; i <= this.endPage; i++) {
-          if (i == num) {
-            this.strC += '<button ref="clickThing" style="display:inline-block;text-align:center;width:20px;color:#fff;background:#00a0ea;font-weight:700;" @click="upPage(' + i + ')">' + (i + 1) + '</button> '
-          } else {
-            this.strC += '<button @click="upPage(' + i + ')">' + (i + 1) + '</button> '
-          }
+        var _this = this;
+        for (var i = startPage; i <= endPage; i++) {
+          (function (i) {
+            _this.strC = i;
+            console.log(_this.strC);
+          })(i)
         }
-        //this.strE2 = num + 1 + "/" + this.totalNum + "页" + "  共" + this.message.length + "条";
-        this.$refs.barcon.innerHTML = this.strC
       }
     },
     //创建前状态
@@ -102,7 +103,7 @@
     //更新完成状态
     updated: function () {
       this.totalNum = Math.ceil(this.message.length / this.showNum);
-      this.upPage(0);
+      //this.upPage(0);
     },
     //销毁前状态
     beforeDestroy: function () {
@@ -116,5 +117,12 @@
 <style lang="scss" rel="stylesheet/scss" scoped>
   button {
     cursor: pointer;
+    line-height: 20px;
+    padding: 0 10px;
+  }
+
+  .active {
+    background: #dd4444;
+    color: #00B7FF;
   }
 </style>
