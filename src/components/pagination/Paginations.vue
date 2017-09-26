@@ -5,13 +5,13 @@
         <button>首页</button>
       </li>
       <li v-show="current != 0" @click="current-- && goto(current)">
-        <button>上一页</button>
+        <button>PRE</button>
       </li>
       <li v-for="index in pages" @click="goto(index-1)" :key="index">
         <button :class="{'active':current == index-1}">{{index}}</button>
       </li>
       <li v-show="allpage-1 != current && allpage != 0 " @click="goto(++current)">
-        <button>下一页</button>
+        <button>NEXT</button>
       </li>
       <li v-show="allpage-1 != current && allpage != 0 " @click="goto(allpage-1)">
         <button>尾页</button>
@@ -87,16 +87,18 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+  .pagination{
+    margin: 0 auto;
+  }
   li {
     display: inline-block;
     border: 1px solid #f3f3f3;
   }
-
   button {
     border: none;
+    width: 40px;
     padding: 5px;
     cursor: pointer;
+    user-select: none;
   }
-
-
 </style>
