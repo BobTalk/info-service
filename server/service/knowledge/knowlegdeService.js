@@ -3,7 +3,7 @@ var async = require('async');
 var KnowledgeDao = require('../../dao/Knowledge_dao/knowledgeDao');
 module.exports = {
   getKnowledgeInfo: function (req, res, next) {
-    return KnowledgeDao.getAllInfo('*',function (err, result) {
+    return KnowledgeDao.getAllInfo('18',function (err, result) {
       res.json(result)
     });
     /* try {
