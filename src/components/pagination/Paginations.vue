@@ -39,14 +39,15 @@
     computed: {
       pages: function () {
         var pag = [];
-        if (this.current < this.showNum) { //如果当前的激活的项 小于要显示的条数
+        if (this.current < this.showNum / 3) { //如果当前的激活的项 小于要显示的条数
           //总页数和要显示的条数那个大就显示多少条
           var i = Math.min(this.showNum, this.allpage);
           while (i) {
+            //添加
             pag.unshift(i--);
           }
         } else { //当前页数大于显示页数了
-          var middle = this.current - Math.floor(this.showNum / 2),//从哪里开始
+          var middle = this.current - Math.floor(this.showNum / 3),//从哪里开始
             i = this.showNum;
           if (middle > (this.allpage - this.showNum)) {
             middle = (this.allpage - this.showNum) + 1
@@ -72,27 +73,6 @@
         this.current = index;
         //这里可以发送ajax请求
       },
-    }
-    ,
-    //创建前状态
-    beforeCreate: function () {
-    }
-    ,
-    //创建完成状态
-    created: function () {
-    }
-    ,
-    //挂载前状态
-    beforeMount: function () {
-    }
-    ,
-    //挂载完成状态
-    mounted: function () {
-
-    },
-    //更新前状态
-    beforeUpdated: function () {
-
     },
     //更新完成状态
     updated: function () {
@@ -101,13 +81,6 @@
         this.goto(0);
         this.flag = false
       }
-
-    },
-    //销毁前状态
-    beforeDestroy: function () {
-    },
-    //销毁后状态
-    destroyed: function () {
     }
   }
 
