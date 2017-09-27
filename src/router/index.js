@@ -56,7 +56,6 @@ export default new Router({
     },
     {
       path: '/carveout',
-      component: '',
       children: [{
         path: 'detail',
         name:'CarveoutDetail',
