@@ -1,13 +1,13 @@
 <template>
   <div class="middle">
     <ul ref="content">
-    <li class="clear" v-for="(value,key) in middleInfo">
+    <li class="clear" v-for="(value,key) in indexList">
       <div class="icon">
         <img :src="value.icon" alt="">
       </div>
       <div class="content">
         <p class="summary">
-          <router-link :to="{name:'home',query:{id:value.id}}">{{value.info}}</router-link>
+          <router-link :to="{name:'home',query:{id:value.CONTID}}">{{value.NAME}}</router-link>
         </p>
         <p class="time">{{value.time}}</p>
       </div>
@@ -18,12 +18,13 @@
 </template>
 
 <script>
+  import  {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
   import Pagination from '../pagination/Paginations.vue'
   export default {
     data(){
       return {
         dataList:[],
-        middleInfo: [
+        middleInfo: [/*
           {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
           {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
           {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
@@ -79,17 +80,23 @@
           {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
           {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
           {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-        ]
+        */]
       }
     },
     components: {Pagination},
     computed: {
-      attribute: function () {
-      }
+      ...mapState(['indexList']),
+      ...mapGetters({content: "content"})
     },
-    methods: {},
+    methods: {
+      ...mapActions({act: "increment"}),
+      ...mapMutations(["increment"]),
+    },
     //创建前状态
     beforeCreate: function () {
+      this.$http.get('/getAllInfo', {params: {id:26}}).then((res) => {
+        this.$store.state.indexList = res.body;
+    })
     },
     //创建完成状态
     created: function () {
@@ -99,13 +106,15 @@
     },
     //挂载完成状态
     mounted: function () {
-      this.dataList = this.$refs.content.children;
+
     },
     //更新前状态
     beforeUpdated: function () {
     },
     //更新完成状态
     updated: function () {
+      this.act(30)
+      this.dataList = this.$refs.content.children;
     },
     //销毁前状态
     beforeDestroy: function () {

@@ -1,9 +1,9 @@
 var express = require('express')
 var router = express.Router()
-var KnowledgeInfo = require('../service/knowledge/knowlegdeService')
-//查询信息
-router.get('/getKnowledgeInfo', function (req, res, next) {
-  KnowledgeInfo.getKnowledgeInfo(req, res, next)
+var GetAllInfo = require('../service/getAllInfo/AllInfoService')
+//查询所有信息
+router.get('/getAllInfo', function (req, res, next) {
+  GetAllInfo.getAllInfo(req, res, next)
 })
 module.exports = router;
 

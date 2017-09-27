@@ -3,10 +3,13 @@ import Router from 'vue-router'
 /*import Home from "../components/home/home.vue"*/
 const Home = r => require.ensure([], () => r(require('../components/home/home.vue')), 'home')
 import Knowledge from "../components/knowlege/knowlege.vue"
+import KnowledgeDetail from "../components/knowlege/detail/knowlegeDetail.vue"
 import Policy from "../components/policy/Poliy.vue"
+import PoliyDetail from "../components/policy/detail/poliyDetail.vue"
 import Story from "../components/story/story.vue"
+import StoryDetail from "../components/story/detail/stoyDetail.vue"
+import Login from "../components/login/login.vue"
 Vue.use(Router)
-
 export default new Router({
   mode: "history",
   routes: [
@@ -16,33 +19,43 @@ export default new Router({
       component: Home
     },
     {
-      path: '/loginout',
-      redirect: 'home'
+      path: '/login',
+      /*redirect: 'home'*/
+      component:Login
     },
     {
       path: '/policy',
       name: 'policy',
-      component: Policy
-    },
-    {
-      path: '/policy/:id',
-      component: Policy
+      component: Policy,
+      children: [{
+        path: 'detail',
+        name: 'PoliyDetail',
+        component: PoliyDetail
+      }]
     },
     {
       path: '/knowledge',
-      component: Knowledge
-    },
-    {
-      path: '/knowledge/:id',
-      component: Knowledge
+      name:'knowledge',
+      component: Knowledge,
+      children: [{
+        path: 'detail',
+        name: 'KnowledgeDetail',
+        component: KnowledgeDetail
+      }]
     },
     {
       path: '/story',
-      component: Story
+      name:'story',
+      component: Story,
+      children: [{
+        path: 'detail',
+        name: 'StoryDetail',
+        component: StoryDetail
+      }]
     },
     {
-      path: '/story/:id',
-      component: Story
-    }
+      path: '*',
+      component: Home
+    },
   ]
 })

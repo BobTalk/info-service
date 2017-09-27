@@ -28,7 +28,9 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {//路径代理
-      "/getKnowledgeInfo":"http://localhost:9090"
+      "/getKnowledgeInfo":"http://localhost:9090",
+      "/getPolicyInfo":"http://localhost:9090",
+      "/getAllInfo":"http://localhost:9090",
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

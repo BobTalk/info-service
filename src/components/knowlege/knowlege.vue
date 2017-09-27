@@ -21,8 +21,6 @@
     methods: {},
     created(){
       this.$http.get('/getKnowledgeInfo').then((res) => {
-        //this.dataList = res.body;
-        console.log(res.body);
         this.$store.state.policyList = res.body;
       })
     },

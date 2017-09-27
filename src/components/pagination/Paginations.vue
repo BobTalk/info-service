@@ -46,6 +46,12 @@
             //添加
             pag.unshift(i--);
           }
+        } else if (this.current > this.showNum / 3 && this.current < this.showNum) {
+          var i = Math.min(this.showNum, this.allpage);
+          while (i) {
+            //添加
+            pag.unshift(i--);
+          }
         } else { //当前页数大于显示页数了
           var middle = this.current - Math.floor(this.showNum / 3),//从哪里开始
             i = this.showNum;
@@ -87,13 +93,15 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  .pagination{
+  .pagination {
     margin: 0 auto;
   }
+
   li {
     display: inline-block;
     border: 1px solid #f3f3f3;
   }
+
   button {
     border: none;
     width: 40px;

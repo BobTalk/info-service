@@ -8,12 +8,12 @@
       <router-link :to="{name:'policy'}" class="title">{{title}}</router-link>
     </figure>
     <ul class="content">
-      <li class="clear" v-for="(data,key) in policyList">
+      <li class="clear" v-for="(data,key) in knowledgeList">
         <div style="float: left">
           <i class="icon"></i>
         </div>
         <div style="float: right;width: calc(100% - 20px)">
-          <router-link :to="{name:'policy',query:{id:data.CONTID}}">{{data.NAME}}</router-link>
+          <router-link :to="{name:'KnowledgeDetail',query:{id:data.CONTID}}">{{data.NAME}}</router-link>
         </div>
       </li>
     </ul>
@@ -31,7 +31,7 @@
     },
     components: {},
     computed: {
-      ...mapState(['policyList']),
+      ...mapState(['knowledgeList']),
       ...mapGetters({content: "content"})
     },
     methods: {
@@ -43,8 +43,10 @@
     },
     //创建前状态
     beforeCreate: function () {
-      this.$http.get('/getKnowledgeInfo').then((res) => {
+      this.$http.get('/getAllInfo', {params: {id: 18}}).then((res) => {
         this.$store.state.knowledgeList = res.body;
+      }, (err)=> {
+        console.log(err);
       })
     },
     //创建完成状态
@@ -75,7 +77,7 @@
 
 <style lang="scss" rel="stylesheet/scss" scoped>
   .knowledge {
-    float:left;
+    float: left;
     position: relative;
     display: inline-block;
     width: 232px;

@@ -13,7 +13,7 @@
           <i class="icon"></i>
         </div>
         <div style="float: right;width: calc(100% - 20px)">
-          <router-link :to="{name:'policy',query:{id:data.CONTID}}">{{data.NAME}}</router-link>
+          <router-link :to="{name:'PoliyDetail',query:{id:data.CONTID}}">{{data.NAME}}</router-link>
         </div>
       </li>
     </ul>
@@ -51,7 +51,7 @@
     },
     //创建前状态
     beforeCreate: function () {
-      this.$http.get('/getKnowledgeInfo').then((res) => {
+      this.$http.get('/getAllInfo', {params: {id:17}}).then((res) => {
         this.$store.state.policyList = res.body;
       })
     },
