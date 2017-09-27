@@ -46,12 +46,6 @@
             //添加
             pag.unshift(i--);
           }
-        } else if (this.current > this.showNum / 3 && this.current < this.showNum) {
-          var i = Math.min(this.showNum, this.allpage);
-          while (i) {
-            //添加
-            pag.unshift(i--);
-          }
         } else { //当前页数大于显示页数了
           var middle = this.current - Math.floor(this.showNum / 3),//从哪里开始
             i = this.showNum;
@@ -59,7 +53,11 @@
             middle = (this.allpage - this.showNum) + 1
           }
           while (i--) {
-            pag.push(middle++);
+            if (middle > 0) {
+              pag.push(middle++);
+            } else {
+              middle++
+            }
           }
         }
         return pag
