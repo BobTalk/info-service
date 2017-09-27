@@ -8,6 +8,7 @@ import Policy from "../components/policy/Poliy.vue"
 import PoliyDetail from "../components/policy/detail/PoliyDetail.vue"
 import Story from "../components/story/Story.vue"
 import StoryDetail from "../components/story/detail/StoyDetail.vue"
+import CarveoutDetail from "../components/carveout/detail/CarveoutDetail.vue"
 import Login from "../components/login/Login.vue"
 Vue.use(Router)
 export default new Router({
@@ -21,7 +22,7 @@ export default new Router({
     {
       path: '/login',
       /*redirect: 'home'*/
-      component:Login
+      component: Login
     },
     {
       path: '/policy',
@@ -35,7 +36,7 @@ export default new Router({
     },
     {
       path: '/knowledge',
-      name:'knowledge',
+      name: 'knowledge',
       component: Knowledge,
       children: [{
         path: 'detail',
@@ -45,12 +46,21 @@ export default new Router({
     },
     {
       path: '/story',
-      name:'story',
+      name: 'story',
       component: Story,
       children: [{
         path: 'detail',
         name: 'StoryDetail',
         component: StoryDetail
+      }]
+    },
+    {
+      path: '/carveout',
+      component: '',
+      children: [{
+        path: 'detail',
+        name:'CarveoutDetail',
+        component: CarveoutDetail
       }]
     },
     {

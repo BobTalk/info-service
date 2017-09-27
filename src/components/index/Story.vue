@@ -5,7 +5,7 @@
       <a style="display: inline-block;width: 16px;height: 19px;">
         <img :src="img.src" alt="">
       </a>
-      <router-link :to="{name:'policy'}" class="title">{{title}}</router-link>
+      <router-link :to="{name:'story'}" class="title">{{title}}</router-link>
     </figure>
     <ul class="content">
       <li class="clear" v-for="(data,key) in storyList">

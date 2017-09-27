@@ -7,7 +7,7 @@
       </div>
       <div class="content">
         <p class="summary">
-          <router-link :to="{name:'home',query:{id:value.CONTID}}">{{value.NAME}}</router-link>
+          <router-link :to="{name:'CarveoutDetail',query:{id:value.CONTID}}">{{value.NAME}}</router-link>
         </p>
         <p class="time">{{value.time}}</p>
       </div>
