@@ -9,8 +9,8 @@
 </template>
 
 <script>
-  import HeaderV from  "../header/header.vue"
-  import FooterV from  "../footer/footer.vue"
+  import HeaderV from  "../header/Header.vue"
+  import FooterV from  "../footer/Footer.vue"
   export default {
     data(){
       return {

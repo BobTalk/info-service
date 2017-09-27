@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-/*import Home from "../components/home/home.vue"*/
-const Home = r => require.ensure([], () => r(require('../components/home/home.vue')), 'home')
-import Knowledge from "../components/knowlege/knowlege.vue"
-import KnowledgeDetail from "../components/knowlege/detail/knowlegeDetail.vue"
+/*import Home from "../components/home/Home.vue"*/
+const Home = r => require.ensure([], () => r(require('../components/home/Home.vue')), 'home')
+import Knowledge from "../components/knowlege/Knowlege.vue"
+import KnowledgeDetail from "../components/knowlege/detail/KnowlegeDetail.vue"
 import Policy from "../components/policy/Poliy.vue"
-import PoliyDetail from "../components/policy/detail/poliyDetail.vue"
-import Story from "../components/story/story.vue"
-import StoryDetail from "../components/story/detail/stoyDetail.vue"
-import Login from "../components/login/login.vue"
+import PoliyDetail from "../components/policy/detail/PoliyDetail.vue"
+import Story from "../components/story/Story.vue"
+import StoryDetail from "../components/story/detail/StoyDetail.vue"
+import Login from "../components/login/Login.vue"
 Vue.use(Router)
 export default new Router({
   mode: "history",

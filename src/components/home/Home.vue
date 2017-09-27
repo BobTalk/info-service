@@ -14,9 +14,9 @@
 </template>
 
 <script>
-  import HeaderV from  "../header/header.vue"
-  import FooterV from  "../footer/footer.vue"
-  import  Crf from "../carouselFigure/carouse.vue"
+  import HeaderV from  "../header/Header.vue"
+  import FooterV from  "../footer/Footer.vue"
+  import  Crf from "../carouselFigure/Carouse.vue"
   import Knowledge from "../index/Knowledge.vue"
   import InfoMiddle from "../index/Info-middle.vue"
   import Story from '../index/Story.vue'
