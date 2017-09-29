@@ -6,6 +6,7 @@ import actions from '../store/actions'
 Vue.use(Vuex)
 const state =
 {
+  loginFlag:false,
   policyList: [],
   knowledgeList: [],
   storyList: [],

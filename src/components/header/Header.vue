@@ -14,8 +14,8 @@
           </li>
         </ul>
         <div class="info fr">
-          <router-link to="/login">登录</router-link>
-          <router-link to="/register">注册</router-link>
+          <button @click="act(true)">登录</button>
+          <button>注册</button>
           <router-link to="#" v-show="!flag">{{username}}</router-link>
           <router-link to="/loginout" v-show="!flag">退出</router-link>
         </div>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+  import  {mapActions} from 'vuex'
   export default {
     data(){
       return {
@@ -34,7 +35,14 @@
       }
     },
     components: {},
-    methods: {}
+    computed: {
+    },
+    methods: {
+      ...mapActions({act: "login"}),
+      result(){
+        return false
+      }
+    }
   }
 </script>
 

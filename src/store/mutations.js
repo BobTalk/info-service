@@ -6,5 +6,8 @@ export default  {
       }
     }
     return state.policyList
+  },
+  login(state, flag){
+    return state.loginFlag = flag
   }
 }
