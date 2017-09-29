@@ -1,59 +1,33 @@
 <template>
-  <div class="login">
-    <nav class="clear">
-      <p class="loginIn fl" :class="{active:comp=='Login'}" @click="comp='Login'">登录</p>
-      <p class="register fl" :class="{active:comp=='Reg'}" @click="comp='Reg'">注册</p>
-      <p class="close" :class="{active:comp=='Reg'}">X</p>
-      <component :is="comp"></component>
-    </nav>
-  </div>
+    <form class="form">
+      <div class="box">
+        <div class="username">
+          <input type="text" placeholder="请输入用户名">
+        </div>
+        <div class="password">
+          <input type="password" placeholder="请输入密码">
+        </div>
+        <div class="password">
+          <input type="password" placeholder="请确认密码">
+        </div>
+        <div class="btn">
+          <input type="button" value="注 册">
+        </div>
+      </div>
+    </form>
 </template>
-
 <script>
-  import  Reg from '../register/Register.vue'
-  import  Login from './Template.vue'
   export default {
     data(){
       return {
-        comp:'Login',
       }
     },
-    components: {Reg,Login},
+    components: {},
     methods: {}
   }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  .login {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 410px;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    text-align: center;
-    opacity: 1;
-    overflow: hidden;
-    .loginIn {
-      display: inline-block;
-      width: 240px;
-      height: 100%;
-    }
-    nav {
-      line-height: 36px;
-    }
-    .register {
-      display: inline-block;
-      width: calc(100% - 280px);
-      height: 100%;
-    }
-    .close {
-      display:inline-block ;
-      width: calc(100% - 460px);
-      height: 100%;
-      cursor: pointer;
-    }
     .form {
       position: relative;
       width: 100%;
@@ -99,7 +73,6 @@
         }
       }
     }
-  }
   .active{
     background: #0650a0;
   }
