@@ -1,8 +1,7 @@
 <template>
   <div style="width: 100%;height: 100%;">
-    <div v-if="loginFlag" class="show-login">
-      <Login></Login>
-    </div>
+    <div v-if="loginFlag" class="show-login"></div>
+    <Login v-if="loginFlag"></Login>
     <router-view></router-view>
   </div>
 </template>
