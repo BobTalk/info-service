@@ -3,23 +3,36 @@
     <nav class="clear">
       <p class="loginIn fl" :class="{active:comp=='Login'}" @click="comp='Login'">登录</p>
       <p class="register fl" :class="{active:comp=='Reg'}" @click="comp='Reg'">注册</p>
-      <p class="close" :class="{active:comp=='Reg'}">X</p>
+      <p class="close" :class="{active:comp=='Reg'}" @click="act(false)">X</p>
       <component :is="comp"></component>
     </nav>
   </div>
 </template>
 
 <script>
+  import  {mapState, mapActions} from 'vuex'
   import  Reg from '../register/Register.vue'
   import  Login from './Template.vue'
   export default {
     data(){
       return {
-        comp:'Login',
+        comp: '',
       }
     },
-    components: {Reg,Login},
-    methods: {}
+    components: {Reg, Login},
+    computed: {
+      ...mapState(['loginFlag']),
+    },
+    methods: {
+      ...mapActions({act: 'login'}),
+    },
+    mounted: function () {
+      if (this.loginFlag.login == 'login') {
+        this.comp = 'Login'
+      } else {
+        this.comp = 'Reg'
+      }
+    }
   }
 </script>
 
@@ -49,7 +62,7 @@
       height: 100%;
     }
     .close {
-      display:inline-block ;
+      display: inline-block;
       width: calc(100% - 460px);
       height: 100%;
       cursor: pointer;
@@ -65,16 +78,16 @@
         left: 50%;
         width: 200px;
         transform: translate(-50%, -50%);
-        .username,.password{
+        .username, .password {
           position: relative;
           width: 100%;
           height: 24px;
           margin-top: 20px;
           background: #fff;
           border: 1px solid #f3f3f3;
-          input{
+          input {
             position: absolute;
-            top:0;
+            top: 0;
             right: 0;
             height: 100%;
             width: calc(100% - 40px);
@@ -83,15 +96,15 @@
             border: none;
           }
         }
-        .username{
+        .username {
           background: url("../../assets/imags/username.png") no-repeat #fff;
         }
-        .password{
+        .password {
           background: url("../../assets/imags/password.png") no-repeat #fff;
         }
-        .btn{
+        .btn {
           margin-top: 20px;
-          input{
+          input {
             padding: 5px 10px;
             border: none;
             cursor: pointer;
@@ -100,7 +113,8 @@
       }
     }
   }
-  .active{
+
+  .active {
     background: #0650a0;
   }
 </style>

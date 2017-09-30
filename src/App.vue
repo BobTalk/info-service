@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import  {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
+  import  {mapState} from 'vuex'
   import  Login from './components/login/Login.vue'
   export default {
     data(){

@@ -1,18 +1,18 @@
 <template>
   <div class="middle">
     <ul ref="content">
-    <li class="clear" v-for="(value,key) in indexList">
-      <div class="icon">
-        <img :src="value.icon" alt="">
-      </div>
-      <div class="content">
-        <p class="summary">
-          <router-link :to="{name:'CarveoutDetail',query:{id:value.CONTID}}">{{value.NAME}}</router-link>
-        </p>
-        <p class="time">{{value.time}}</p>
-      </div>
-    </li>
-  </ul>
+      <li class="clear" v-for="(value,key) in indexList">
+        <div class="icon">
+          <img :src="value.icon" alt="">
+        </div>
+        <div class="content">
+          <p class="summary">
+            <router-link :to="{name:'CarveoutDetail',query:{id:value.CONTID}}">{{value.NAME}}</router-link>
+          </p>
+          <p class="time">{{value.time}}</p>
+        </div>
+      </li>
+    </ul>
     <pagination :message="dataList"></pagination>
   </div>
 </template>
@@ -23,64 +23,64 @@
   export default {
     data(){
       return {
-        dataList:[],
+        dataList: [],
         middleInfo: [/*
-          {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'}, {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'}, {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
-          {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
-        */]
+         {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'}, {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/1000.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'}, {id: '1', icon: require('../../assets/imags/1.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/2.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/3.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         {id: '2', icon: require('../../assets/imags/4.jpg'), info: '测试数据信息', time: '2017-8-9'},
+         */]
       }
     },
     components: {Pagination},
@@ -94,9 +94,9 @@
     },
     //创建前状态
     beforeCreate: function () {
-      this.$http.get('/getAllInfo', {params: {id:26}}).then((res) => {
+      this.$http.get('/getAllInfo', {params: {id: 26}}).then((res) => {
         this.$store.state.indexList = res.body;
-    })
+      })
     },
     //创建完成状态
     created: function () {

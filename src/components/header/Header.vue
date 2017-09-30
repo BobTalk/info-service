@@ -14,8 +14,8 @@
           </li>
         </ul>
         <div class="info fr">
-          <button @click="act(true)">登录</button>
-          <button>注册</button>
+          <button @click="act(optionLogin)">登录</button>
+          <button @click="act(optionRegister)">注册</button>
           <router-link to="#" v-show="!flag">{{username}}</router-link>
           <router-link to="/loginout" v-show="!flag">退出</router-link>
         </div>
@@ -31,7 +31,9 @@
     data(){
       return {
         username: "hyq",
-        flag: true
+        flag: true,
+        optionLogin:{flag:true,login:'login'},
+        optionRegister:{flag:true,login:'register'},
       }
     },
     components: {},
@@ -39,9 +41,6 @@
     },
     methods: {
       ...mapActions({act: "login"}),
-      result(){
-        return false
-      }
     }
   }
 </script>
