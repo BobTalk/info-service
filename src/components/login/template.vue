@@ -27,6 +27,7 @@
       }
     },
     components: {},
+    computed: {},
     methods: {
       getFile(event) {
         this.file = event.target.files[0];
@@ -35,7 +36,7 @@
       submitForm(event) {
         event.preventDefault();
         let data = {};
-        data['name'] = this.username;
+        data['username'] = this.username;
         data['password'] = this.password;
         /*data.append('file', this.file);*/
         let config = {
@@ -43,10 +44,14 @@
             'Content-Type': 'multipart/form-data'
           }
         }
-        this.$http.post('/userInfo', data, {emulateJSON:true}).then((res)=> {
+        this.$http.post('/userInfo', data, {emulateJSON: true}).then((res)=> {
           if (res.status === 200) {
-            console.log(res.body);
-          }else {
+            if (res.body.length > 0) {
+              document.cookie = "name =" + res.body[0].username + ";path=/;";
+            } else {
+              document.cookie = "name = null;path=/;";
+            }
+          } else {
 
           }
         })

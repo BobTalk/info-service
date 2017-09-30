@@ -10,7 +10,8 @@ const state =
   policyList: [],
   knowledgeList: [],
   storyList: [],
-  indexList: []
+  indexList: [],
+  usernameFlag:{}
 }
 export  default  new Vuex.Store({
   state,
