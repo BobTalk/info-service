@@ -1,11 +1,12 @@
 var express = require('express')
+var bodyParser = require('body-parser')
 var path = require('path')
 var favicon = require('serve-favicon')
+var app = express()
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 //声明页面路由
 var routes = require('./routes')
-//声明接口路由
-
-var app = express()
 app.use(express.static(path.join(__dirname,'views'))
 )
 app.use('/',routes)

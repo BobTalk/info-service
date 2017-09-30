@@ -3,8 +3,8 @@ import App from './App'
 import store from  './store'
 import router from './router'
 import VueRouter from "vue-router"
-import vueR from 'vue-resource'
-Vue.use(vueR);
+import vueResource from 'vue-resource'
+Vue.use(vueResource);
 Vue.use(VueRouter)
 new Vue({
   el: '#app',

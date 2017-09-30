@@ -1,5 +1,5 @@
 <template>
-  <div style="box-shadow: 0 3px 3px #c7c7c7, -10px 0 3px #f5f5f5, 10px 0 3px #f5f5f5; background: #fff" >
+  <div style="box-shadow: 0 3px 3px #c7c7c7, -10px 0 3px #f5f5f5, 10px 0 3px #f5f5f5; background: #fff">
     <div class="auto w1200">
       <div class="head p70 clear">
         <div class="logo fl">
@@ -32,13 +32,12 @@
       return {
         username: "hyq",
         flag: true,
-        optionLogin:{flag:true,login:'login'},
-        optionRegister:{flag:true,login:'register'},
+        optionLogin: {flag: true, login: 'login'},
+        optionRegister: {flag: true, login: 'register'},
       }
     },
     components: {},
-    computed: {
-    },
+    computed: {},
     methods: {
       ...mapActions({act: "login"}),
     }
@@ -47,6 +46,7 @@
 
 <style scoped>
   @import "../../style/reset.css";
+
   .head {
     height: 82px;
     width: 100%;

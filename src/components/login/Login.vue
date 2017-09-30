@@ -55,6 +55,7 @@
     }
     nav {
       line-height: 36px;
+      background: #fff;
     }
     .register {
       display: inline-block;
