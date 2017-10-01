@@ -14,10 +14,10 @@
           </li>
         </ul>
         <div class="info fr">
-          <button @click="act(optionLogin)">登录</button>
-          <button @click="act(optionRegister)">注册</button>
-          <router-link to="#" v-show="!flag">{{username}}</router-link>
-          <router-link to="/loginout" v-show="!flag">退出</router-link>
+          <button v-if="flag" @click="act(optionLogin)">登录</button>
+          <button v-if="flag" @click="act(optionRegister)">注册</button>
+          <router-link to="#" v-if="!flag">{{username}}</router-link>
+          <button v-if="!flag" @click="loginout">退出</button>
         </div>
       </div>
       <router-view></router-view>
@@ -27,6 +27,7 @@
 
 <script>
   import  {mapActions} from 'vuex'
+  import cookie from '../cookie/cookieFormate'
   export default {
     data(){
       return {
@@ -39,8 +40,21 @@
     components: {},
     computed: {},
     methods: {
+      loginout: function () {
+        console.log("loginout");
+        cookie.delCookie('name');
+        document.location.reload();
+      },
       ...mapActions({act: "login"}),
-    }
+    },
+    //挂载完成状态
+    mounted: function () {
+      var cookieVal = cookie.getCookie('name');
+      if (cookieVal != null) {
+        this.username = cookieVal;
+        this.flag = false
+      }
+    },
   }
 </script>
 

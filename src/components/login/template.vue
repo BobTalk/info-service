@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  import  cookie from '../cookie/cookieFormate'
   export default {
     data(){
       return {
@@ -29,11 +30,11 @@
     components: {},
     computed: {},
     methods: {
-      getFile(event) {
+      getFile: function (event) {
         this.file = event.target.files[0];
         /*console.log(this.file);*/
       },
-      submitForm(event) {
+      submitForm: function (event) {
         event.preventDefault();
         let data = {};
         data['username'] = this.username;
@@ -47,9 +48,11 @@
         this.$http.post('/userInfo', data, {emulateJSON: true}).then((res)=> {
           if (res.status === 200) {
             if (res.body.length > 0) {
-              document.cookie = "name =" + res.body[0].username + ";path=/;";
-            } else {
-              document.cookie = "name = null;path=/;";
+              cookie.setCookie('name', res.body[0].username)
+              console.log(this.$route);
+              //this.$router.push({name:'home'})
+              /*重新刷新当前页面*/
+              document.location.reload();
             }
           } else {
 
