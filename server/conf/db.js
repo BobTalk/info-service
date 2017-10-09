@@ -5,8 +5,8 @@ module.exports = {
     /*host: '192.9.100.46',*/
     host: 'localhost',
     user: 'root',
-    password: 'root123',
+    password: '123456',
     database: 'oms_basic',
-    port: 3306
+    port: 3305
   }
 };

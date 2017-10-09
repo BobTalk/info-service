@@ -1,4 +1,4 @@
-var getUserInfo = require('../../dao/getUserInfo/userDao');
+var getUserInfo = require('../../dao/getUserInfo/getUserDao');
 module.exports = {
   UserInfo: function (req, res, next) {
     getUserInfo.userInfo(req.body, function (err, result) {

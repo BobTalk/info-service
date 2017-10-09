@@ -18,9 +18,9 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {//路径代理
-      "/getKnowledgeInfo":"http://localhost:9090",
       "/userInfo":"http://localhost:9090",
       "/getAllInfo":"http://localhost:9090",
+      "/getContent":"http://localhost:9090",
     },
     cssSourceMap: false
   }
