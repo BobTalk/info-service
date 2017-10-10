@@ -49,8 +49,6 @@
           if (res.status === 200) {
             if (res.body.length > 0) {
               cookie.setCookie('name', res.body[0].username)
-              //console.log(this.$route);
-              //this.$router.push({name:'home'})
               /*重新刷新当前页面*/
               document.location.reload();
             }

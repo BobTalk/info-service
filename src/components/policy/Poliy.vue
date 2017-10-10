@@ -40,5 +40,7 @@
 </script>
 
 <style scoped>
-
+  [data-contentId]{
+    cursor: pointer;
+  }
 </style>

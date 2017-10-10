@@ -76,6 +76,9 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+  [data-contentId]{
+    cursor: pointer;
+  }
   .middle {
     float: left;
     width: 559px;

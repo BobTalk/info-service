@@ -77,6 +77,9 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+  [data-contentId]{
+    cursor: pointer;
+  }
   .story {
     float: right;
     position: relative;

@@ -79,6 +79,9 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+  [data-contentId]{
+    cursor: pointer;
+  }
   .knowledge {
     float: left;
     position: relative;

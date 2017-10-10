@@ -21,6 +21,7 @@ module.exports = {
       "/userInfo":"http://localhost:9090",
       "/getAllInfo":"http://localhost:9090",
       "/getContent":"http://localhost:9090",
+      "/register":"http://localhost:9090",
     },
     cssSourceMap: false
   }
