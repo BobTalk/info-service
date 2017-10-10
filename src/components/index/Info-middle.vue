@@ -6,11 +6,8 @@
           <img :src="value.icon" alt="">
         </div>
         <div class="content">
-          <p class="summary">
-            <!--<router-link :to="{name:'CarveoutDetail',query:{id:value.CONTID}}">{{value.NAME}}</router-link>-->
           <p @click="eve" :data-contentId="value.CONTID">{{value.NAME}}</p>
-          </p>
-          <p class="time">{{value.time}}</p>
+          <p class="time">{{value.updateTime | formatTime}}</p>
         </div>
       </li>
     </ul>
@@ -21,7 +18,14 @@
 <script>
   import  {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
   import Pagination from '../pagination/Paginations.vue'
+  import {formatDate} from '../../assets/js/data'
   export default {
+    filters: {
+      formatTime(time) {
+        var date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd');
+      }
+    },
     data(){
       return {
         dataList: [],
@@ -76,9 +80,10 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  [data-contentId]{
+  [data-contentId] {
     cursor: pointer;
   }
+
   .middle {
     float: left;
     width: 559px;
@@ -94,8 +99,15 @@
       }
     }
     .content {
+      position: relative;
       float: right;
+      height: 125px;
       width: calc(100% - 210px);
+      .time {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
     }
     li {
       margin-bottom: 10px;

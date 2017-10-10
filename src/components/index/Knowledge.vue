@@ -15,6 +15,7 @@
         <div style="float: right;width: calc(100% - 20px)">
           <!--<router-link :to="{name:'KnowledgeDetail',query:{id:data.CONTID}}">{{data.NAME}}</router-link>-->
           <p @click="eve" :data-contentId="data.CONTID">{{data.NAME}}</p>
+          <p style="text-align: right;padding: 5px 0">{{data.updateTime | formatTime}}</p>
         </div>
       </li>
     </ul>
@@ -23,7 +24,14 @@
 
 <script>
   import  {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
+  import {formatDate} from '../../assets/js/data'
   export default {
+    filters: {
+      formatTime(time) {
+        var date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd');
+      }
+    },
     data(){
       return {
         title: "创业知识",
@@ -79,9 +87,10 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-  [data-contentId]{
+  [data-contentId] {
     cursor: pointer;
   }
+
   .knowledge {
     float: left;
     position: relative;

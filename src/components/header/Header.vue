@@ -27,7 +27,7 @@
 
 <script>
   import  {mapActions} from 'vuex'
-  import cookie from '../cookie/cookieFormate'
+  import cookie from '../../assets/js/cookieFormate'
   export default {
     data(){
       return {
