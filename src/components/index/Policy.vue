@@ -5,7 +5,7 @@
       <a style="display: inline-block;width: 16px;height: 19px;">
         <img :src="img.src" alt="">
       </a>
-      <router-link :to="{name:'policy'}" class="title">{{title}}</router-link>
+      <router-link :to="{name:'policy',query:{nodeId:17}}" class="title">{{title}}</router-link>
     </figure>
     <ul class="content">
       <li class="clear" v-for="(data,key) in policyList">
@@ -13,7 +13,8 @@
           <i class="icon"></i>
         </div>
         <div style="float: right;width: calc(100% - 20px)">
-          <router-link :to="{name:'PoliyDetail',query:{id:data.CONTID}}">{{data.NAME}}</router-link>
+          <!--<router-link :to="{name:'PoliyDetail',query:{contentId:data.CONTID}}">{{data.NAME}}</router-link>-->
+          <p @click="eve" :data-contentId="data.CONTID">{{data.NAME}}</p>
         </div>
       </li>
     </ul>
@@ -27,9 +28,9 @@
       return {
         title: "创业政策",
         img: {src: require('../../assets/imags/cyzc11.png')},
-       /* policyList: [
-          {id: '1', content: '的发撒撒旦发阿凡达复查士大夫v阿道夫v啊是非常啊v啊方法是打阿斯蒂芬撒地方山大发送的发热无法大师傅士大夫犯得上VS地方'}
-        ]*/
+        /* policyList: [
+         {id: '1', content: '的发撒撒旦发阿凡达复查士大夫v阿道夫v啊是非常啊v啊方法是打阿斯蒂芬撒地方山大发送的发热无法大师傅士大夫犯得上VS地方'}
+         ]*/
       }
     },
     components: {},
@@ -39,19 +40,24 @@
     },
     methods: {
       /*LimitNumber: function (txt, num) {
-        var str = txt;
-        num = num || 25;
-        if (txt.length > num) {
-          str = str.substr(0, num) + '......';
-        }
-        return str;
-      },*/
+       var str = txt;
+       num = num || 25;
+       if (txt.length > num) {
+       str = str.substr(0, num) + '......';
+       }
+       return str;
+       },*/
       ...mapActions({act: "increment"}),
       ...mapMutations(["increment"]),
+      eve: function (event) {
+        var contentId = event.target.getAttribute('data-contentId');
+        this.$root.$emit('change', contentId);
+        this.$router.push({name: 'PoliyDetail', query: {contentId: contentId}})
+      }
     },
     //创建前状态
     beforeCreate: function () {
-      this.$http.get('/getAllInfo', {params: {id:17}}).then((res) => {
+      this.$http.get('/getAllInfo', {params: {id: 17}}).then((res) => {
         this.$store.state.policyList = res.body;
       })
     },
@@ -85,8 +91,11 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
+  [data-contentId]{
+    cursor: pointer;
+  }
   .policy {
-    float:left;
+    float: left;
     position: relative;
     display: inline-block;
     width: calc(100% - 830px);

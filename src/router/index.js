@@ -53,6 +53,11 @@ export default new Router({
       component: Detail
     },
     {
+      path: '/middle/detail',
+      name: 'middleDetail',
+      component: Detail
+    },
+    {
       path: '/carveout',
       children: [{
         path: 'detail',

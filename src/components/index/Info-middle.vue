@@ -7,7 +7,8 @@
         </div>
         <div class="content">
           <p class="summary">
-            <router-link :to="{name:'CarveoutDetail',query:{id:value.CONTID}}">{{value.NAME}}</router-link>
+            <!--<router-link :to="{name:'CarveoutDetail',query:{id:value.CONTID}}">{{value.NAME}}</router-link>-->
+          <p @click="eve" :data-contentId="value.CONTID">{{value.NAME}}</p>
           </p>
           <p class="time">{{value.time}}</p>
         </div>
@@ -35,6 +36,11 @@
     methods: {
       ...mapActions({act: "increment"}),
       ...mapMutations(["increment"]),
+      eve: function (event) {
+        var contentId = event.target.getAttribute('data-contentId');
+        this.$root.$emit('change', contentId);
+        this.$router.push({name: 'middleDetail', query: {contentId: contentId}})
+      }
     },
     //创建前状态
     beforeCreate: function () {

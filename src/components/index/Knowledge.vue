@@ -13,7 +13,8 @@
           <i class="icon"></i>
         </div>
         <div style="float: right;width: calc(100% - 20px)">
-          <router-link :to="{name:'KnowledgeDetail',query:{id:data.CONTID}}">{{data.NAME}}</router-link>
+          <!--<router-link :to="{name:'KnowledgeDetail',query:{id:data.CONTID}}">{{data.NAME}}</router-link>-->
+          <p @click="eve" :data-contentId="data.CONTID">{{data.NAME}}</p>
         </div>
       </li>
     </ul>
@@ -37,8 +38,10 @@
     methods: {
       ...mapActions({act: "increment"}),
       ...mapMutations(["increment"]),
-      result(){
-        return false
+      eve: function (event) {
+        var contentId = event.target.getAttribute('data-contentId');
+        this.$root.$emit('change', contentId);
+        this.$router.push({name: 'KnowledgeDetail', query: {contentId: contentId}})
       }
     },
     //创建前状态
