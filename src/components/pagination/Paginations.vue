@@ -108,4 +108,7 @@
     cursor: pointer;
     user-select: none;
   }
+  .active {
+    background: #df3526;
+  }
 </style>
