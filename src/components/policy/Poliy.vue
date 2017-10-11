@@ -15,7 +15,7 @@
               <i class="wire"></i>
               <span @click="eve" :data-contentId="value.CONTID">{{value.NAME}}</span>
               <span v-show="false" ref="nodeName">{{value.nodeName}}</span>
-              <span :data-contentId="value.CONTID" style="float: right">{{value.updateTime | formatTime}}</span>
+              <span :data-contentId="value.CONTID" style="float: right">{{value.updateTime | date}}</span>
             </li>
           </ul>
           <Pagination :message="dataList" :showPage="showItem"></Pagination>
@@ -30,13 +30,12 @@
   import HeaderV from  "../header/Header.vue"
   import FooterV from  "../footer/Footer.vue"
   import Pagination from '../pagination/Paginations.vue'
-  import {formatDate} from '../../assets/js/data'
   import {mapState} from 'vuex'
+  import moment from "moment" //时间格式化模块
   export default {
     filters: {
-      formatTime(time) {
-        var date = new Date(time);
-        return formatDate(date, 'yyyy-MM-dd');
+      date(val){
+        return moment(val).format('MM月DD日')
       }
     },
     data(){
