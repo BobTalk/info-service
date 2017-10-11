@@ -7,10 +7,7 @@
         </div>
         <ul class="fl">
           <li>
-            <router-link to="/">首页</router-link>
-            <router-link to="/policy">创业政策</router-link>
-            <router-link to="/knowledge">创业知识</router-link>
-            <router-link to="/story">创业故事</router-link>
+            <router-link v-for="(value,key) in navs" :to="value.link">{{value.name}}</router-link>
           </li>
         </ul>
         <div class="info fr">
@@ -35,6 +32,12 @@
         flag: true,
         optionLogin: {flag: true, login: 'login'},
         optionRegister: {flag: true, login: 'register'},
+        navs: [
+          {link: '/', name: '首页'},
+          {link: '/policy', name: '创业政策'},
+          {link: '/knowledge', name: '创业知识'},
+          {link: '/story', name: '创业故事'}
+        ]
       }
     },
     components: {},

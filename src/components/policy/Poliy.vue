@@ -8,7 +8,7 @@
         <span>&gt;&gt;</span>
         <router-link to="#">{{nodeName}}</router-link>
       </div>
-      <div class="content">
+      <div class="content" v-cloak>
         <div class="summary auto w1200 p70">
           <ul class="item_list clear" ref="policy">
             <li v-for="(value,index) in policyList" class="list">
@@ -17,7 +17,6 @@
               <span v-show="false" ref="nodeName">{{value.nodeName}}</span>
               <span :data-contentId="value.CONTID" style="float: right">{{value.updateTime | formatTime}}</span>
             </li>
-
           </ul>
           <Pagination :message="dataList" :showPage="showItem"></Pagination>
         </div>
