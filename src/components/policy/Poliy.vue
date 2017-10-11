@@ -19,7 +19,7 @@
             </li>
 
           </ul>
-          <Pagination :message="dataList"></Pagination>
+          <Pagination :message="dataList" :showPage="showItem"></Pagination>
         </div>
       </div>
     </main>
@@ -43,6 +43,8 @@
     data(){
       return {
         dataList: [],
+        //页面显示条数
+        showItem: 10,
         nodeName: '',
       }
     },

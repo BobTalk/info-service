@@ -15,10 +15,10 @@
               <i class="wire"></i>
               <span @click="eve" :data-contentId="value.CONTID">{{value.NAME}}</span>
               <span :data-contentId="value.CONTID" style="float: right">{{value.updateTime | formatTime}}</span>
-              <span v-show="false"  ref="nodeName">{{value.nodeName}}</span>
+              <span v-show="false" ref="nodeName">{{value.nodeName}}</span>
             </li>
           </ul>
-          <Pagination :message="dataList"></Pagination>
+          <Pagination :message="dataList" :showPage="showItem"></Pagination>
         </div>
       </div>
     </main>
@@ -42,7 +42,8 @@
     data(){
       return {
         dataList: [],
-        nodeName:""
+        nodeName: "",
+        showItem: 5
       }
     },
     components: {HeaderV, FooterV, Pagination},

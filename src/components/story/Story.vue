@@ -18,7 +18,7 @@
               <span v-show="false" ref="nodeName">{{value.nodeName}}</span>
             </li>
           </ul>
-          <Pagination :message="dataList"></Pagination>
+          <Pagination :message="dataList" :showPage="showItem"></Pagination>
         </div>
       </div>
     </main>
@@ -42,7 +42,8 @@
     data(){
       return {
         dataList: [],
-        nodeName: ''
+        nodeName: '',
+        showItem: 6
       }
     },
     components: {HeaderV, FooterV, Pagination},

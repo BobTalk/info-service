@@ -7,7 +7,7 @@
       <li v-show="current != 0" @click="current-- && goto(current)">
         <button>PRE</button>
       </li>
-      <li v-for="index in pages" @click="goto(index-1)" :key="index">
+      <li v-for="index in pages" @click="goto(index-1)" :key="index" v-if="pages.length > 1">
         <button :class="{'active':current == index-1}">{{index}}</button>
       </li>
       <li v-show="allpage-1 != current && allpage != 0 " @click="goto(++current)">
@@ -22,7 +22,7 @@
 
 <script>
   export default {
-    props: ['message'],
+    props: ['message', 'showPage'],
     data(){
       return {
         current: 0,
@@ -81,6 +81,7 @@
     //更新完成状态
     updated: function () {
       this.allpage = Math.ceil(this.message.length / this.showItem);
+      this.showItem = this.showPage || this.showItem;
       if (this.flag) {
         this.goto(0);
         this.flag = false
@@ -106,8 +107,5 @@
     padding: 5px;
     cursor: pointer;
     user-select: none;
-  }
-  .active{
-    background: #dd4444;
   }
 </style>
