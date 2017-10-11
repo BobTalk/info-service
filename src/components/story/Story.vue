@@ -112,7 +112,16 @@
         width: 100%;
         height: 2px;
         z-index: 88;
-        background: -webkit-linear-gradient(left, #0068b7, #4197d3, #8ccef4);
+        /*火狐3.6+*/
+        background: -moz-linear-gradient(left, #0068b7, #8ccef4);
+        /*Opera 11.10+*/
+        background: -o-linear-gradient(left, #0068b7, #8ccef4);
+        /* Chrome,Safari4+*/
+        background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#0068b7), to(#8ccef4));
+        /* IE10+*/
+        background: -ms-linear-gradient(left, #0068b7, #8ccef4);
+        /* IE6-9 */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0068b7', endColorstr='#8ccef4', GradientType=0);
         transition: height .5s linear 0s;
       }
     }
