@@ -121,6 +121,7 @@
         background: -ms-linear-gradient(left, #0068b7, #8ccef4);
         /* IE6-9 */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0068b7', endColorstr='#8ccef4', GradientType=0);
+        background: -webkit-linear-gradient(left, #0068b7, #8ccef4);
         transition: height .5s linear 0s;
       }
     }

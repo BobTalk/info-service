@@ -94,4 +94,9 @@
     color: #c2c2c2;
     border-radius: 3px;
   }
+
+  button {
+    text-decoration: none;
+    cursor: pointer;
+  }
 </style>
