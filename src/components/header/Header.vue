@@ -11,10 +11,10 @@
           </li>
         </ul>
         <div class="info fr">
-          <button v-if="flag" @click="act(optionLogin)">登录</button>
-          <button v-if="flag" @click="act(optionRegister)">注册</button>
-          <router-link to="#" v-if="!flag">{{username}}</router-link>
-          <button v-if="!flag" @click="loginout">退出</button>
+          <input type="button" v-if="flag" @click="act(optionLogin)" value="登录"/>
+          <input type="button" v-if="flag" @click="act(optionRegister)" value="注册"/>
+          <router-link to="#" v-if="!flag" style="color: #0000cc">{{username}}</router-link>
+          <input type="button" v-if="!flag" @click="loginout" value="退出"/>
         </div>
       </div>
       <router-view></router-view>
@@ -44,7 +44,6 @@
     computed: {},
     methods: {
       loginout: function () {
-        console.log("loginout");
         cookie.delCookie('name');
         document.location.reload();
       },
@@ -54,7 +53,7 @@
     mounted: function () {
       var cookieVal = cookie.getCookie('name');
       if (cookieVal != null) {
-        this.username = cookieVal;
+        this.username = unescape(cookieVal);
         this.flag = false
       }
     },
@@ -95,8 +94,9 @@
     border-radius: 3px;
   }
 
-  button {
-    text-decoration: none;
+  [type='button'] {
+    padding: 2px 5px;
     cursor: pointer;
+    box-sizing: border-box;
   }
 </style>

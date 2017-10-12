@@ -1,5 +1,4 @@
 var $writelog = require('../libs/logHelper');
-var sillyDatetime = require('silly-datetime');//日期时间三方库
 module.exports = {
   extend: function (target, source, flag) {
     for (var key in source) {
@@ -38,20 +37,6 @@ module.exports = {
         guid += "-";
     }
     return guid;
-  },
-  getDateTime: function () {
-    var time = sillyDatetime.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
-    return time;
-  },
-  getYear: function () {
-    var time = sillyDatetime.format(new Date(), 'YYYY');
-    return time;
-  },
-  wxConfig: {
-    token: "ansenun",
-    appId: "wx9903a3c0df7671e0",
-    appsecret: "2d66baf4d4d91cd8ad4c6ff482dbf182",
-    accessToken: ""
   },
 
   isNull: function (param) {//判断对象是否为空

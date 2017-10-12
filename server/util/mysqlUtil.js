@@ -20,7 +20,7 @@ module.exports = {
       params = [];
     }
     mysqlQ.query(sql, params, function (err, results) {
-      if (err != null) {
+      if (err != null || results == null) {
         $writelog.helper.writeErr("执行sql发生错误：" + sql + "/n 错误信息：" + err.stack);
         callback(err, results);
         return;

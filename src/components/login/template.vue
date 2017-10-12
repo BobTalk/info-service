@@ -11,7 +11,7 @@
          <input type="file" placeholder="请选择文件" @change="getFile($event)">
        </div>-->
       <div class="btn">
-        <input type="button" value="登 录" @click="submitForm($event)">
+        <input type="button" value="登 录" @click.prevent="submitForm">
       </div>
     </div>
   </form>
@@ -34,8 +34,7 @@
         this.file = event.target.files[0];
         /*console.log(this.file);*/
       },
-      submitForm: function (event) {
-        event.preventDefault();
+      submitForm: function () {
         let data = {};
         data['username'] = this.username;
         data['password'] = this.password;
@@ -47,13 +46,13 @@
         }
         this.$http.post('/userInfo', data, {emulateJSON: true}).then((res)=> {
           if (res.status === 200) {
-            if (res.body.length > 0) {
-              cookie.setCookie('name', res.body[0].username)
+            if (res.body.resultnum == "0000") {
+              cookie.setCookie('name', res.body.resultdata[0].username)
               /*重新刷新当前页面*/
               document.location.reload();
+            } else {
+              alert(res.body.resultdata)
             }
-          } else {
-
           }
         })
       }
