@@ -5,6 +5,7 @@ module.exports = {
     // 获取前台页面传过来的参数
     var param = req.query || req.params;
     return getAllInfo.getAllInfo(param.id, function (err, result) {
+      //console.log(result);
       res.json(result)
     });
   }

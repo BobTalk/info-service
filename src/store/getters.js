@@ -1,8 +1,8 @@
 export  default{
-  content: (state)=> {
+  content: (state,getters)=> {
     return state.policyList
   },
-  login: (state)=> {
+  login: (state,getters)=> {
     return state.loginFlag
   }
 }

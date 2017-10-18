@@ -66,7 +66,11 @@
     //创建前状态
     beforeCreate: function () {
       this.$http.get('/getAllInfo', {params: {id: 17}}).then((res) => {
-        this.$store.state.policyList = res.body;
+        if (res.body) {
+          this.$store.state.policyList = res.body;
+        } else {
+          this.$store.state.policyList = res.data;
+        }
       })
     },
     //创建完成状态

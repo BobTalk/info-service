@@ -49,8 +49,12 @@
     //创建前状态
     beforeCreate: function () {
       this.$http.get('/getAllInfo', {params: {id: 26}}).then((res) => {
+        if (res.body){
         this.$store.state.indexList = res.body;
-      })
+      }else{
+        this.$store.state.indexList = res.data;
+      }
+    })
     },
     //创建完成状态
     created: function () {

@@ -10,7 +10,7 @@ function resolve(dir) {
 module.exports = {
   entry: {
     //app: './src/main.js'
-   /* 为了解决IE兼容问题*/
+    /* 为了解决IE兼容问题*/
     app: ["babel-polyfill", "./src/main.js"]
   },
   output: {

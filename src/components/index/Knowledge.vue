@@ -55,7 +55,11 @@
     //创建前状态
     beforeCreate: function () {
       this.$http.get('/getAllInfo', {params: {id: 18}}).then((res) => {
+      if (res.body) {
         this.$store.state.knowledgeList = res.body;
+      } else {
+        this.$store.state.knowledgeList = res.data;
+      }
       }, (err)=> {
         console.log(err);
       })

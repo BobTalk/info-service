@@ -36,7 +36,8 @@
           {link: '/', name: '首页'},
           {link: '/policy', name: '创业政策'},
           {link: '/knowledge', name: '创业知识'},
-          {link: '/story', name: '创业故事'}
+          {link: '/story', name: '创业故事'},
+          {link:'/directive',name:'test'}
         ]
       }
     },

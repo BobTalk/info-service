@@ -60,7 +60,11 @@
     //创建前状态
     beforeCreate: function () {
       this.$http.get('/getAllInfo', {params: {id: 22}}).then((res) => {
-        this.$store.state.storyList = res.body;
+        if (res.body) {
+          this.$store.state.storyList = res.body;
+        } else {
+          this.$store.state.storyList = res.data;
+        }
       }, (err)=> {
         console.log(err);
       })

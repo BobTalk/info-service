@@ -36,7 +36,11 @@
       var url = window.location.href;
       this.$root.$on('change', (data) => {
         this.$http.get('/getContent', {params: {id: data}}).then((res) => {
-          this.$store.state.contentDetail = res.body;
+          if(res.body){
+              this.$store.state.contentDetail = res.body;
+          }else {
+            this.$store.state.contentDetail = res.data;
+          }
         }, (err)=> {
           console.log(err);
         })
@@ -44,7 +48,11 @@
       });
       var urlId = Formate.urlFormate(url);
       this.$http.get('/getContent', {params: {id: urlId.contentId}}).then((res) => {
+        if(res.body){
         this.$store.state.contentDetail = res.body;
+        }else {
+          this.$store.state.contentDetail = res.data;
+        }
       }, (err)=> {
         console.log(err);
       })

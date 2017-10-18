@@ -8,6 +8,7 @@ import Detail from "../components/detail/Detail.vue"
 import Story from "../components/story/Story.vue"
 import CarveoutDetail from "../components/carveout/detail/CarveoutDetail.vue"
 import Login from "../components/login/Login.vue"
+import Dire from "../components/directive/dire.vue"
 Vue.use(Router)
 export default new Router({
   mode: "history",
@@ -51,6 +52,10 @@ export default new Router({
       path: '/story/detail',
       name: 'StoryDetail',
       component: Detail
+    },
+    {
+      path: '/directive',
+      component: Dire
     },
     {
       path: '/middle/detail',
