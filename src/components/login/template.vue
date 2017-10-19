@@ -46,12 +46,12 @@
         }
         this.$http.post('/userInfo', data, {emulateJSON: true}).then((res)=> {
           if (res.status === 200) {
-            if (res.body.resultnum == "0000") {
-              cookie.setCookie('name', res.body.resultdata[0].username)
+            if (res.data.resultnum == "0000") {
+              cookie.setCookie('name', res.data.resultdata[0].username)
               /*重新刷新当前页面*/
               document.location.reload();
             } else {
-              alert(res.body.resultdata)
+              alert(res.data.resultdata)
             }
           }
         })
