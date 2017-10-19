@@ -23,7 +23,7 @@
 <script>
   import HeaderV from  "../header/Header.vue"
   import FooterV from  "../footer/Footer.vue"
-  import {mapState} from  'vuex'
+  import {mapState,mapActions} from  'vuex'
   import Formate from '../../assets/js/formate'
   export default {
     data(){
@@ -61,11 +61,14 @@
       ...mapState(['contentDetail']),
     },
     components: {HeaderV, FooterV},
-    methods: {},
+    methods: {
+      ...mapActions({act: "detail"}),
+    },
     //更新完成状态
     updated: function () {
       this.title = this.$refs.title[0].innerText;
       this.nodeName = this.$refs.nodeName[0].innerText;
+      this.act(30)
     },
   }
 </script>

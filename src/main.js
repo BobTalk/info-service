@@ -8,7 +8,6 @@ import VueRouter from "vue-router"
 import Axios from 'axios'
 Vue.prototype.$http = Axios
 import './style/reset.css'
-
 Vue.use(VueRouter)
 new Vue({
   el: '#app',

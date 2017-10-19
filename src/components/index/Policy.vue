@@ -13,8 +13,7 @@
           <i class="icon"></i>
         </div>
         <div style="float: right;width: calc(100% - 20px)">
-          <!--<router-link :to="{name:'PoliyDetail',query:{contentId:data.CONTID}}">{{data.NAME}}</router-link>-->
-          <p @click="eve" :data-contentId="data.CONTID">{{data.NAME}}</p>
+          <p @click="eve" :data-contentId="data.CONTID" :title="data.NAME">{{data.NAME}}</p>
           <p style="text-align: right;padding: 5px 0">{{data.updateTime | formatTime}}</p>
         </div>
       </li>
@@ -23,7 +22,7 @@
 </template>
 
 <script>
-  import  {mapState, mapGetters, mapMutations, mapActions} from 'vuex'
+  import  {mapState,mapActions} from 'vuex'
   import {formatDate} from '../../assets/js/data'
   export default {
     filters: {
@@ -36,27 +35,14 @@
       return {
         title: "创业政策",
         img: {src: require('../../assets/imags/cyzc11.png')},
-        /* policyList: [
-         {id: '1', content: '的发撒撒旦发阿凡达复查士大夫v阿道夫v啊是非常啊v啊方法是打阿斯蒂芬撒地方山大发送的发热无法大师傅士大夫犯得上VS地方'}
-         ]*/
       }
     },
     components: {},
     computed: {
       ...mapState(['policyList']),
-      ...mapGetters({content: "content"})
     },
     methods: {
-      /*LimitNumber: function (txt, num) {
-       var str = txt;
-       num = num || 25;
-       if (txt.length > num) {
-       str = str.substr(0, num) + '......';
-       }
-       return str;
-       },*/
-      ...mapActions({act: "increment"}),
-      ...mapMutations(["increment"]),
+     ...mapActions({act: "increment"}),
       eve: function (event) {
         var contentId = event.target.getAttribute('data-contentId');
         this.$root.$emit('change', contentId);
@@ -75,9 +61,6 @@
     },
     //创建完成状态
     created(){
-      /*for (var key in this.policyList) {
-       this.policyList[key].content = this.LimitNumber(this.policyList[key].content, 30)
-       }*/
     },
     //挂载前状态
     beforeMount: function () {

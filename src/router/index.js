@@ -12,6 +12,8 @@ import Dire from "../components/directive/dire.vue"
 Vue.use(Router)
 export default new Router({
   mode: "history",
+  //切换路由的时候，内容都从顶上开始读
+  scrollBehavior: () =>({y: 0}),
   routes: [
     {
       path: '/',
@@ -66,7 +68,7 @@ export default new Router({
       path: '/carveout',
       children: [{
         path: 'detail',
-        name:'CarveoutDetail',
+        name: 'CarveoutDetail',
         component: CarveoutDetail
       }]
     },
