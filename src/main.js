@@ -7,6 +7,7 @@ import VueRouter from "vue-router"
 /*Vue.use(vueResource);*/
 import Axios from 'axios'
 Vue.prototype.$http = Axios
+/*import 'bootstrap/dist/css/bootstrap.min.css'*/
 import './style/reset.css'
 Vue.use(VueRouter)
 new Vue({

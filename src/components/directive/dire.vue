@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p type="text" v-focus="red">fdfdfdfd</p>
+    <p type="text" v-focus="red" class="glyphicon glyphicon-ok">fdfdfdfd</p>
     <my-component></my-component>
   </div>
 </template>
@@ -15,7 +15,7 @@
   })
   /*自定义标签*/
   Vue.component('my-component', {
-    template:'<h1>中国十九大会议在北京召开</h1>'
+    template: '<h1>中国十九大会议在北京召开</h1>'
   })
 
   export default {
