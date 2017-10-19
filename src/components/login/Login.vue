@@ -3,9 +3,9 @@
     <nav class="clear">
       <p class="loginIn fl" :class="{active:comp=='Login'}" @click="comp='Login'">登录</p>
       <p class="register fl" :class="{active:comp=='Reg'}" @click="comp='Reg'">注册</p>
-      <p class="close" :class="{active:comp=='Reg'}" @click="act(false)">X</p>
-      <component :is="comp"></component>
+      <p class="close1" :class="{active:comp=='Reg'}" @click="act(false)">X</p>
     </nav>
+    <component :is="comp"></component>
   </div>
 </template>
 
@@ -57,15 +57,13 @@
       line-height: 36px;
       background: #fff;
     }
-    .register {
+    .register, .close1{
       display: inline-block;
       width: calc(100% - 280px);
       height: 100%;
     }
-    .close {
-      display: inline-block;
+    .close1 {
       width: calc(100% - 460px);
-      height: 100%;
       cursor: pointer;
     }
     .form {
@@ -117,5 +115,6 @@
 
   .active {
     background: #0650a0;
+    color: #f3f3f3;
   }
 </style>

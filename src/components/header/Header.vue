@@ -1,20 +1,22 @@
 <template>
   <div style="box-shadow: 0 3px 3px #c7c7c7, -10px 0 3px #f5f5f5, 10px 0 3px #f5f5f5; background: #fff">
     <div class="auto w1200">
-      <div class="head p70 clear">
-        <div class="logo fl">
+      <div class="navbar p70 clear">
+        <div class="container-fluid">
+        <div class="logo navbar-brand fl">
           <img src="../../assets/imags/footerlogo.png" alt="">
         </div>
         <ul class="fl">
-          <li>
+          <li class="navbar-brand">
             <router-link v-for="(value,key) in navs" :to="value.link">{{value.name}}</router-link>
           </li>
         </ul>
         <div class="info fr">
-          <input type="button" v-if="flag" @click="act(optionLogin)" value="登录"/>
-          <input type="button" v-if="flag" @click="act(optionRegister)" value="注册"/>
+          <input type="button" class="btn btn-default navbar-btn" v-if="flag" @click="act(optionLogin)" value="登录"/>
+          <input type="button" class="btn btn-default navbar-btn" v-if="flag" @click="act(optionRegister)" value="注册"/>
           <router-link to="#" v-if="!flag" style="color: #0000cc">{{username}}</router-link>
-          <input type="button" v-if="!flag" @click="loginout" value="退出"/>
+          <input type="button" class="btn btn-default navbar-btn" v-if="!flag" @click="loginout" value="退出"/>
+        </div>
         </div>
       </div>
       <router-view></router-view>
@@ -37,7 +39,7 @@
           {link: '/policy', name: '创业政策'},
           {link: '/knowledge', name: '创业知识'},
           {link: '/story', name: '创业故事'},
-          {link:'/directive',name:'test'}
+          {link: '/directive', name: 'test'}
         ]
       }
     },
@@ -74,7 +76,6 @@
 
   .logo {
     width: 140px;
-    height: 40px;
     margin-right: 70px;
   }
 
@@ -99,5 +100,8 @@
     padding: 2px 5px;
     cursor: pointer;
     box-sizing: border-box;
+  }
+  .navbar-brand{
+    font-size: 14px;
   }
 </style>
