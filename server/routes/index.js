@@ -1,9 +1,9 @@
 var express = require('express')
 var router = express.Router()
-var GetAllInfo = require('../service/getAllInfo/AllInfoService')
-var GetUserInfo = require('../service/userinfo/getUserService')
-var GetContentInfo = require('../service/contentinfo/getContentService')
-var registerInfo = require('../service/register/registerService')
+var GetAllInfo = require('./../service/getAllInfo/AllInfoService')
+var GetUserInfo = require('./../service/userinfo/getUserService')
+var GetContentInfo = require('./../service/contentinfo/getContentService')
+var registerInfo = require('./../service/register/registerService')
 router.post('/userInfo', function (req, res, next) {
   GetUserInfo.UserInfo(req, res, next)
 }),

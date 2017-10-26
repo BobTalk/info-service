@@ -13,22 +13,26 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+    rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
   },
-  // cheap-module-eval-source-map is faster for development
+  /*利于开发阶段调试 4个选项*/
   devtool: '#cheap-module-eval-source-map',
   plugins: [
+   new webpack.BannerPlugin('版权所有，翻版必究'),
+    /*   new HtmlWebpackPlugin({
+      //new 一个这个插件的实例，并传入相关的参数
+      template: "@/components/footer/Footer.vue"
+    }),*/
     new webpack.DefinePlugin({
       'process.env': config.dev.env
     }),
-    // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      favicon:'favicon.ico',
+      favicon: 'favicon.ico',
+      /*向template或者templateContent中注入所有静态资源*/
       inject: true
     }),
     new FriendlyErrorsPlugin()

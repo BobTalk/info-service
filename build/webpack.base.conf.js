@@ -30,13 +30,16 @@ module.exports = {
   module: {
     rules: [
       {
+        /*一个用以匹配loaders所处理文件的拓展名的正则表达式*/
         test: /\.vue$/,
+        /*loader的名称*/
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        /*include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）*/
         include: [resolve('src'), resolve('test')]
       },
       {

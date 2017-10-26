@@ -1,7 +1,7 @@
 var app = require('../app')
 var debug = require('debug')('info-service:server');
 var http = require('http')
-var port = normalizePort(process.env.PORT || '9090')
+var port = normalizePort(process.env.PORT || '9191')
 app.set('port', port);
 
 var server = http.createServer(app);

@@ -5,11 +5,11 @@ function generateComponentFunction (path) {
 }
 const Home = r => require.ensure([], () => r(require('../components/home/Home.vue')), 'home')
 const Knowledge = generateComponentFunction('/knowlege/Knowlege.vue')
-import Policy from "../components/policy/Poliy.vue"
-import Detail from "../components/detail/Detail.vue"
-import Story from "../components/story/Story.vue"
-import Login from "../components/login/Login.vue"
-import Dire from "../components/directive/dire.vue"
+import Policy from "@/components/policy/Poliy.vue"
+import Detail from "@/components/detail/Detail.vue"
+import Story from "@/components/story/Story.vue"
+import Login from "@/components/login/Login.vue"
+import Dire from "@/components/carouselFigure/CarouseFadeIn.vue"
 Vue.use(Router)
 export default new Router({
   mode: "history",
@@ -32,7 +32,7 @@ export default new Router({
       component: Policy,
     },
     {
-      path: '/policy/detail',
+      path: '/detail',
       name: 'PoliyDetail',
       component: Detail
     },
@@ -42,7 +42,7 @@ export default new Router({
       component: Knowledge,
     },
     {
-      path: '/knowledge/detail',
+      path: '/detail',
       name: 'KnowledgeDetail',
       component: Detail
     },
@@ -52,7 +52,7 @@ export default new Router({
       component: Story,
     },
     {
-      path: '/story/detail',
+      path: '/detail',
       name: 'StoryDetail',
       component: Detail
     },
@@ -61,7 +61,7 @@ export default new Router({
       component: Dire
     },
     {
-      path: '/middle/detail',
+      path: '/detail',
       name: 'middleDetail',
       component: Detail
     },

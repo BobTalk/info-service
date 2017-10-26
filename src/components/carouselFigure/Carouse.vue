@@ -79,11 +79,11 @@
         ],
         // 子组件中模拟的轮播图数组，实际开发中应由父组件传入
         defaultList: [
-          {id: 1, link: 'www.sohu.com', src: require('../../assets/imags/banner1.jpg')},
-          {id: 2, link: 'www.githup.com', src: require('../../assets/imags/banner2.jpg')},
-          {id: 3, link: 'www.bjgjj.gov.com.cn', src: require('../../assets/imags/banner3.jpg')},
-          {id: 4, link: 'www.bjgjj.gov.com.cn', src: require('../../assets/imags/banner5.jpg')},
-          {id: 5, link: 'www.bjgjj.gov.com.cn', src: require('../../assets/imags/banner4.jpg')}
+          {id: 1, link: 'www.sohu.com', src: require('./../../assets/imags/banner1.jpg')},
+          {id: 2, link: 'www.githup.com', src: require('./../../assets/imags/banner2.jpg')},
+          {id: 3, link: 'www.bjgjj.gov.com.cn', src: require('./../../assets/imags/banner3.jpg')},
+          {id: 4, link: 'www.bjgjj.gov.com.cn', src: require('./../../assets/imags/banner5.jpg')},
+          {id: 5, link: 'www.bjgjj.gov.com.cn', src: require('./../../assets/imags/banner4.jpg')}
         ],
         // 默认显示第一张图片，数组下标为0
         pos: 0,

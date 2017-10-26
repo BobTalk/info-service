@@ -18,10 +18,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {//路径代理
-      "/userInfo":"http://localhost:9090",
-      "/getAllInfo":"http://localhost:9090",
-      "/getContent":"http://localhost:9090",
-      "/register":"http://localhost:9090",
+      "/userInfo":"http://localhost:9191",
+      "/getAllInfo":"http://localhost:9191",
+      "/getContent":"http://localhost:9191",
+      "/register":"http://localhost:9191",
     },
     cssSourceMap: false
   }

@@ -70,7 +70,7 @@
       position: relative;
       width: 100%;
       height: 304px;
-      background: url("../../assets/imags/1000.jpg") no-repeat;
+      background: url("./../../assets/imags/1000.jpg") no-repeat;
       .box {
         position: absolute;
         top: 50%;
@@ -96,10 +96,10 @@
           }
         }
         .username {
-          background: url("../../assets/imags/username.png") no-repeat #fff;
+          background: url("./../../assets/imags/username.png") no-repeat #fff;
         }
         .password {
-          background: url("../../assets/imags/password.png") no-repeat #fff;
+          background: url("./../../assets/imags/password.png") no-repeat #fff;
         }
         .btn {
           margin-top: 20px;
